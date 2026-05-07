@@ -25,7 +25,7 @@ It supports Chromium, Firefox, and WebKit with a single API.
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/playwright-mastery.git
+git clone https://github.com/Deepakkarn56/playwright-mastery.git
 cd playwright-mastery
 
 # Install dependencies
