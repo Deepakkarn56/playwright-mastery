@@ -16,6 +16,7 @@ test("AssertionTest", async ({ page }) => {
   const usernameInput = page.locator("#user-name");
   const passwordInput = page.locator("#password");
   const loginButton = page.locator("#login-button");
+  const errorMesaage = page.locator('[data-test="error"]');
 
   //    verify input filed username and password are visible
   await expect(usernameInput).toBeVisible();
@@ -40,5 +41,23 @@ test("AssertionTest", async ({ page }) => {
 
   await expect(passwordInput).toHaveValue("secret_sauce");
 
+  // verify error message to be hidden before login attempt
+
+  await expect(errorMessage).toBeHidden();
+
   await loginButton.click();
+
+  //  Page and text Assertion  after login
+
+  // verify user to naviaged page
+  await expect(page).toHaveURL(/inventory/);
+
+  // verify products page heading
+  const productTitle = page.locator(".title");
+
+  await expect(productTitle).toBeVisible();
+  await expect(productTitle).toHaveText("Products");
+
+  // partial test verify
+  await expect(productTitle).toContainText("Prod");
 });
