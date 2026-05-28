@@ -73,4 +73,12 @@ test("AssertionTest", async ({ page }) => {
   // verify total number of product displayed
    const productItems= page.locator('.inventory_item_name')
    await expect (productItems).toHaveCount(6)
+
+    //  Screenshot / Visual assertion 
+    // locate web element sauce lab bag pack
+
+    const bagitem = page.getByAltText('Sauce Labs Backpack')
+
+    // compare screenshot with basline screenshot
+    await expect(bagitem).toHaveScreenshot('bagitem.png')
 });
