@@ -16,7 +16,7 @@ test("AssertionTest", async ({ page }) => {
   const usernameInput = page.locator("#user-name");
   const passwordInput = page.locator("#password");
   const loginButton = page.locator("#login-button");
-  const errorMesaage = page.locator('[data-test="error"]');
+  const errorMessage = page.locator('[data-test="error"]');
 
   //    verify input filed username and password are visible
   await expect(usernameInput).toBeVisible();
@@ -59,5 +59,5 @@ test("AssertionTest", async ({ page }) => {
   await expect(productTitle).toHaveText("Products");
 
   // partial test verify
-  await expect(productTitle).toContainText("Prod");
+  await expect(productTitle).toContainText("roduct");
 });
