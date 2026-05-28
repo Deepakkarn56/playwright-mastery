@@ -60,4 +60,13 @@ test("AssertionTest", async ({ page }) => {
 
   // partial test verify
   await expect(productTitle).toContainText("roduct");
+
+  // Class Assertion
+  await expect (productTitle).toHaveClass('title')
+
+  // ID Assertion -- Verify shoping cart id value = "shoping_cart_container"
+
+  const cartIcon = page.locator('.shopping_cart_container')
+ await  expect (cartIcon).toHaveId('shopping_cart_container');
+
 });
