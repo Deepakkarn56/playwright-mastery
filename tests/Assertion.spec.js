@@ -81,4 +81,9 @@ test("AssertionTest", async ({ page }) => {
 
     // compare screenshot with basline screenshot
     await expect(bagitem).toHaveScreenshot('bagitem.png')
+
+    // visual verfication of shoping cart 
+    await expect (page).toHaveScreenshot('cartIcon.png',{
+      mask: [page.locator('.shopping_cart_badge')]
+    })
 });
