@@ -37,7 +37,7 @@ test("AssertionTest", async ({ page }) => {
   await expect(usernameInput).toHaveValue("standard_user");
 
   //   password
-  await passwordInput.fill("secret_sauce");
+    await passwordInput.fill("secret_sauce");
 
   await expect(passwordInput).toHaveValue("secret_sauce");
 
@@ -69,21 +69,21 @@ test("AssertionTest", async ({ page }) => {
   const cartIcon = page.locator(".shopping_cart_container");
   await expect(cartIcon).toHaveId("shopping_cart_container");
 
-  // Count Assertion 
+  // Count Assertion
   // verify total number of product displayed
-   const productItems= page.locator('.inventory_item_name')
-   await expect (productItems).toHaveCount(6)
+  const productItems = page.locator(".inventory_item_name");
+  await expect(productItems).toHaveCount(6);
 
-    //  Screenshot / Visual assertion 
-    // locate web element sauce lab bag pack
+  //  Screenshot / Visual assertion
+  // locate web element sauce lab bag pack
 
-    const bagitem = page.getByAltText('Sauce Labs Backpack')
+  const bagitem = page.getByAltText("Sauce Labs Backpack");
 
-    // compare screenshot with basline screenshot
-    await expect(bagitem).toHaveScreenshot('bagitem.png')
+  // compare screenshot with basline screenshot
+  await expect(bagitem).toHaveScreenshot("bagitem.png");
 
-    // visual verfication of shoping cart 
-    await expect (page).toHaveScreenshot('cartIcon.png',{
-      mask: [page.locator('.shopping_cart_badge')]
-    })
+  // visual verfication of shoping cart
+  await expect(page).toHaveScreenshot("cartIcon.png", {
+    mask: [page.locator(".shopping_cart_badge")],
+  });
 });
