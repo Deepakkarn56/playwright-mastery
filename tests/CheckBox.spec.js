@@ -9,8 +9,22 @@ test("CheckBox", async ({ page }) => {
   const mondayCheckbox = page.locator("#monday");
   const tuesdayCheckbox = page.locator("#tuesday");
 
-  await sundayCheckbox.check(); //check / select sunday checkbox
+//   await sundayCheckbox.check(); //check / select sunday checkbox
 
   //    verify sunday checkbox is selected
-  await expect(sundayCheckbox).toBeChecked();
+//   await expect(sundayCheckbox).toBeChecked();
+
+    //  store allcheckbox in an array . This will help us use loops instead repeating code
+
+    const checkboxes = [sundayCheckbox, mondayCheckbox, tuesdayCheckbox];
+
+    // for loop-  select all checkbox 
+
+    for(const checkbox of checkboxes){
+        // check (select ) the checkbox
+        await checkbox.check();
+
+        // verify checkbox is checked
+        expect(checkbox).toBeChecked();
+    }
 });
