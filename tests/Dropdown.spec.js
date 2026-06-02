@@ -9,6 +9,11 @@ test("Dropdown", async ({ page }) => {
   //    ways to select dropwdown
   // 1. by using label
   await countryDropdown.selectOption({ label: "India" });
+  expect(countryDropdown).toHaveValue("IN");
+
+  //   2. by using value
+  await countryDropdown.selectOption({ value: "IN" });
+  expect(countryDropdown).toHaveValue("IN");
 
   await page.waitForTimeout(5000); //pause for demo purpose
 });
