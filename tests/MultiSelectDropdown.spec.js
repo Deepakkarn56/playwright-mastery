@@ -26,4 +26,25 @@ test("MultipleSelectDropdown", async ({ page }) => {
   ]);
 
   await page.waitForTimeout(5000); //pause for demo purpose
+
+  //   Assertion / validation
+  // 1 verify dropdown is multiple select
+  await expect(multiSelect).toHaveAttribute("multiple");
+
+  // 2 verify total number of options present in dropdown
+  const options = multiSelect.locator("option");
+  await expect(options).toHaveCount(4);
+
+  //  3 verify  if items are selected or not
+  await expect(multiSelect.locator("option:checked")).toContainText([
+    'Selection Item 2',
+    'Selection Item 4',
+  ]);
+
+  await expect(multiSelect.locator("option:checked")).not.toContainText([
+    'Selection Item 3',
+    'Selection Item 1',
+  ]);
+
+  await expect(options).toHaveCount(4);
 });
