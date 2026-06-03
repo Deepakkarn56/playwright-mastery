@@ -15,5 +15,22 @@ test("Dropdown", async ({ page }) => {
   await countryDropdown.selectOption({ value: "IN" });
   expect(countryDropdown).toHaveValue("IN");
 
+  //   by using index
+  await countryDropdown.selectOption({ index: 2 });
+  const selectedValue = await countryDropdown.inputValue();
+
+  expect(selectedValue).not.toBe("");
+
+  //   expect(countryDropdown).toHaveValue("AX");
+
+  // Assertions --1 validate number of opetions
+  // locate  all options elements inside the country dropwdown
+  const options = countryDropdown.locator("option");
+
+  // count how many option are present inside the dropdown
+  const optionsCount = await options.count();
+
+  console.log(optionsCount);
+
   await page.waitForTimeout(5000); //pause for demo purpose
 });
